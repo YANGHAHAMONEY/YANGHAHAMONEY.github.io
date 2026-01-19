@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YANGHAHAMONEY</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自定义配置：匹配苹果字体和主色调 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            gray: '#f5f5f7',
+                            dark: '#1d1d1f',
+                            blue: '#0066cc'
+                        }
+                    },
+                    fontFamily: {
+                        sanfrancisco: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* 苹果风格滚动条 */
+            .scrollbar-apple {
+                scrollbar-width: thin;
+                scrollbar-color: #8e8e93 #f5f5f7;
+            }
+            .scrollbar-apple::-webkit-scrollbar {
+                width: 6px;
+            }
+            .scrollbar-apple::-webkit-scrollbar-track {
+                background: #f5f5f7;
+            }
+            .scrollbar-apple::-webkit-scrollbar-thumb {
+                background-color: #8e8e93;
+                border-radius: 3px;
+            }
+            /* 导航栏滚动效果 */
+            .nav-scrolled {
+                background-color: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(8px);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="font-sanfrancisco bg-apple-gray text-apple-dark scrollbar-apple antialiased">
+    <!-- 苹果风格导航栏 -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- 左侧Logo -->
+            <a href="#" class="text-2xl font-medium text-apple-dark hover:text-apple-blue transition-colors">YANGHAHAMONEY</a>
+            
+            <!-- 右侧导航菜单（桌面端） -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-sm hover:text-apple-blue transition-colors">首页</a>
+                <a href="#features" class="text-sm hover:text-apple-blue transition-colors">特性</a>
+                <a href="#gallery" class="text-sm hover:text-apple-blue transition-colors">展示</a>
+                <a href="#contact" class="text-sm hover:text-apple-blue transition-colors">联系</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-btn" class="md:hidden text-apple-dark focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- 移动端下拉菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white/90 backdrop-blur-2xl shadow-lg py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-sm hover:text-apple-blue transition-colors">首页</a>
+                <a href="#features" class="text-sm hover:text-apple-blue transition-colors">特性</a>
+                <a href="#gallery" class="text-sm hover:text-apple-blue transition-colors">展示</a>
+                <a href="#contact" class="text-sm hover:text-apple-blue transition-colors">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区（苹果标志性大视觉区域） -->
+    <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-light mb-6">YANGHAHAMONEY</h1>
+            <p class="text-xl md:text-2xl text-gray-600 font-light mb-10 max-w-3xl mx-auto">
+                极简设计，极致体验 — 致敬苹果风格的创作表达
+            </p>
+            <a href="#features" class="inline-block bg-apple-blue text-white py-3 px-8 rounded-lg text-sm font-medium hover:bg-[#0071e3] transition-colors">
+                探索更多
+            </a>
+        </div>
+        <!-- 苹果风格大图展示 -->
+        <div class="mt-12 md:mt-16 max-w-5xl mx-auto">
+            <img src="https://picsum.photos/1200/600" alt="主视觉图" class="w-full h-auto rounded-xl shadow-xl">
+        </div>
+    </section>
+
+    <!-- 特性区（苹果风格分区块展示） -->
+    <section id="features" class="py-20 px-4 md:px-8 bg-apple-gray">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-light text-center mb-16">核心特性</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 特性卡片1 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-apple-blue mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-center mb-4">极简设计</h3>
+                    <p class="text-gray-600 text-center font-light">
+                        遵循苹果设计语言，大面积留白、简洁的视觉层级，让内容成为焦点。
+                    </p>
+                </div>
+                
+                <!-- 特性卡片2 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-apple-blue mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-center mb-4">响应式体验</h3>
+                    <p class="text-gray-600 text-center font-light">
+                        完美适配iPhone、iPad、Mac等全尺寸设备，延续苹果跨设备的一致性体验。
+                    </p>
+                </div>
+                
+                <!-- 特性卡片3 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-apple-blue mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-center mb-4">流畅交互</h3>
+                    <p class="text-gray-600 text-center font-light">
+                        平滑的滚动效果、细腻的过渡动画，还原苹果官网丝滑的交互感受。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 展示区（苹果风格图文排版） -->
+    <section id="gallery" class="py-20 px-4 md:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-light text-center mb-16">作品展示</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-light mb-4">视觉表达</h3>
+                    <p class="text-gray-600 font-light mb-6 text-lg">
+                        采用苹果标志性的图文结合方式，让视觉元素与文字内容和谐共生，每一个细节都经过精心打磨，传递极简而高级的审美。
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-apple-blue mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            高清无损视觉素材
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-apple-blue mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            黄金比例排版布局
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-apple-blue mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            统一的视觉语言
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/800/600" alt="作品展示1" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2">
+                    <h3 class="text-2xl md:text-3xl font-light mb-4">交互体验</h3>
+                    <p class="text-gray-600 font-light mb-6 text-lg">
+                        延续苹果官网的交互逻辑，滚动时的导航栏变化、hover状态的细腻反馈、平滑的锚点跳转，让每一次操作都自然且愉悦。
+                    </p>
+                    <a href="#" class="inline-block text-apple-blue hover:underline transition-all">
+                        体验完整交互 →
+                    </a>
+                </div>
+                <div class="md:order-1">
+                    <img src="https://picsum.photos/800/600?2" alt="作品展示2" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区 -->
+    <section id="contact" class="py-20 px-4 md:px-8 bg-apple-gray">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-light mb-6">联系我们</h2>
+            <p class="text-gray-600 font-light mb-10 text-lg">
+                如果你喜欢这个苹果风格的设计，或者有定制化的需求，欢迎联系我们。
+            </p>
+            <a href="mailto:contact@yanghahamoney.com" class="inline-block bg-apple-dark text-white py-4 px-10 rounded-lg text-sm font-medium hover:bg-black transition-colors">
+                发送邮件
+            </a>
+        </div>
+    </section>
+
+    <!-- 苹果风格页脚 -->
+    <footer class="py-12 px-4 md:px-8 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-sm font-medium mb-4">导航</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#home" class="hover:text-apple-blue transition-colors">首页</a></li>
+                        <li><a href="#features" class="hover:text-apple-blue transition-colors">特性</a></li>
+                        <li><a href="#gallery" class="hover:text-apple-blue transition-colors">展示</a></li>
+                        <li><a href="#contact" class="hover:text-apple-blue transition-colors">联系</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-medium mb-4">资源</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">设计指南</a></li>
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">开发文档</a></li>
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-medium mb-4">关注</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">微博</a></li>
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">小红书</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-medium mb-4">法律</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="hover:text-apple-blue transition-colors">使用条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                <p>© 2026 YANGHAHAMONEY.github.io. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 交互逻辑JS -->
+    <script>
+        // 导航栏滚动效果
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑锚点跳转
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // 预留导航栏高度
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
